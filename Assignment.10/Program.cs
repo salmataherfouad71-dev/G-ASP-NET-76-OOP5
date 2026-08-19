@@ -13,7 +13,7 @@
                reference type it just starts pointing to the assigned object.
              c)Object Copying:It creates a new independent object(shallow-deap) .
                Reference Copying:It just copies the address (assignment)*/
-            #endregion 
+            #endregion
             #region Question02
             /*
              a)Shallow Copy:It creates a new object that copies the values of value types
@@ -38,6 +38,14 @@
                fields.It starts executing automatically with the first use of the class.
              d)A static class is a class that every member in it is static.No you cannot 
                create an object from a static class.*/
+            #endregion
+            #region Question04
+            /*
+             a)Extension Method:It is a method that allow you to add new methods to an existing data type
+                without modifying the original source code.
+             b)this.
+             c)In a static class.
+             d)No.*/
             #endregion
             #endregion
         }
