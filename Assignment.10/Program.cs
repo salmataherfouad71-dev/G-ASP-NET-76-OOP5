@@ -47,6 +47,15 @@
              c)In a static class.
              d)No.*/
             #endregion
+            #region Question05
+            /*
+             a)It a class that can be split across two or more files.
+             b)This makes the code easy to read and maintain.Also Partial Class is used
+              when there is more than one developer are working with the same project. 
+             c)Partial Methods are methods that can be declared in one partial class and 
+               implemented in the other part.
+             d)The c# compiler remove it so there is no error.*/
+            #endregion
             #endregion
         }
     }
