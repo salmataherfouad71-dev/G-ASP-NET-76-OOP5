@@ -57,6 +57,105 @@
              d)The c# compiler remove it so there is no error.*/
             #endregion
             #endregion
+            #region Part02
+            DeliveryUtilities.PrintSystemTitle("Smart Delivery Management System");
+            DeliveryCenter center = new DeliveryCenter();
+            Console.Write("Enter Tracking Code:");
+            string standardTrackingCode = Console.ReadLine();
+            Console.Write("Enter Description:");
+            string standardDescription = Console.ReadLine();
+            Console.Write("Enter Wight:");
+            decimal StandardWeight = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter Delivery Fee:");
+            decimal StandardDeliveryFee = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter City:");
+            string standardcity = Console.ReadLine();
+            Console.Write("Enter Street:");
+            string standardStreet = Console.ReadLine();
+            Console.Write("Enter Building Number:");
+            int standardBuildingNumber = int.Parse(Console.ReadLine());
+            StandardShipment standard = new StandardShipment(standardTrackingCode, standardDescription, StandardWeight, StandardDeliveryFee, new DeliveryAddress(standardcity, standardStreet, standardBuildingNumber));
+            center.AddShipment(standard);
+            DeliveryUtilities.PrintSeparator();
+            Console.Write("Enter Tracking Code:");
+            string ExpressTrackingCode = Console.ReadLine();
+            Console.Write("Enter Description:");
+            string ExpressDescription = Console.ReadLine();
+            Console.Write("Enter Wight:");
+            decimal ExpressWeight = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter Delivery Fee:");
+            decimal ExpressDeliveryFee = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter City:");
+            string Expresscity = Console.ReadLine();
+            Console.Write("Enter Street:");
+            string ExpressStreet = Console.ReadLine();
+            Console.Write("Enter Buildng Number:");
+            int ExpressBuildingNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter Extra Fee:");
+            decimal ExpressExtraFee = decimal.Parse(Console.ReadLine());
+            ExpressShipment express = new ExpressShipment(ExpressTrackingCode, ExpressDescription, ExpressWeight, ExpressDeliveryFee, new DeliveryAddress(Expresscity, ExpressStreet, ExpressBuildingNumber), ExpressExtraFee);
+            center.AddShipment(express);
+            DeliveryUtilities.PrintSeparator();
+            Console.Write("Enter Tracking Code:");
+            string internationalTrackingCode = Console.ReadLine();
+            Console.Write("Enter Description:");
+            string internationalDescription = Console.ReadLine();
+            Console.Write("Enter Wight:");
+            decimal internationalWeight = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter Delivery Fee:");
+            decimal internationalDeliveryFee = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter City:");
+            string internationalcity = Console.ReadLine();
+            Console.Write("Enter Street:");
+            string internationalStreet = Console.ReadLine();
+            Console.Write("Enter Buildng Number:");
+            int internationalBuildingNumber = int.Parse(Console.ReadLine());
+            Console.Write("Enter Destination Country:");
+            string destination = Console.ReadLine();
+            Console.Write("Enter Customs Fee:");
+            decimal customsFee = decimal.Parse(Console.ReadLine());
+            InternationalShipment international = new InternationalShipment(internationalTrackingCode, internationalDescription, internationalWeight, internationalDeliveryFee, new(internationalcity, internationalStreet, internationalBuildingNumber), destination, customsFee);
+            center.AddShipment(international);
+            DeliveryUtilities.PrintSeparator();
+            center.PrintAllShipments();
+            Console.WriteLine("Total Shipments Created:"+Shipment.GetTotalShipmentsCreated());
+            DeliveryUtilities.PrintSystemTitle("Object Copying");
+            StandardShipment standard1 = standard;
+            Console.WriteLine("Original Shipment : " + standard.TrackingCode);
+            Console.WriteLine("Assigned Shipment : " + standard1.TrackingCode);
+            Console.WriteLine("Same Object : True");
+            DeliveryUtilities.PrintSystemTitle("Shallow Copy");
+            Shipment standard2=standard.ShallowCopy();
+            Console.WriteLine("Original Shipment Address : " + standard.destination.City);
+            Console.WriteLine("Copied Shipment Address : " + standard2.destination.City);
+            Console.WriteLine("Changing copied shipment address...");
+            standard2.destination.City = "Giza";
+            Console.WriteLine("Original Shipment Address : " + standard.destination.City);
+            Console.WriteLine("Copied Shipment Address : " + standard2.destination.City);
+            Console.WriteLine("Same DeliveryAddress Object : True");
+            DeliveryUtilities.PrintSystemTitle("Deep Copy");
+            Shipment standard3 = standard.DeepCopy();
+            Console.WriteLine("Original Shipment Address : " + standard.destination.City);
+            Console.WriteLine("Copied Shipment Address : " + standard3.destination.City);
+            Console.WriteLine("Changing copied shipment address...");
+            standard3.destination.City = "Cairo";
+            Console.WriteLine("Original Shipment Address : " + standard.destination.City);
+            Console.WriteLine("Copied Shipment Address : " + standard3.destination.City);
+            Console.WriteLine("Same DeliveryAddress Object : False");
+            DeliveryUtilities.PrintSystemTitle("Extension Methods");
+            standard.TrackingStatus = "Is Delivered";
+            express.TrackingStatus = "Out For Delivery";
+            international.TrackingStatus = "Is Ready";
+            standard.GetSummary();
+            express.GetSummary();
+            international.GetSummary();
+            Console.WriteLine($"{standard.TrackingCode} Is Delivered :{standard.IsDelivered()}");
+            Console.WriteLine($"{international.TrackingCode} Is Delivered :{international.IsDelivered()}");
+            DeliveryUtilities.PrintSystemTitle("Tracking Status");
+            international.UpdateTrackingStatus("Out For Delivery");
+            DeliveryUtilities.PrintSystemTitle("Static Utilities");
+
+            #endregion
         }
     }
 }
