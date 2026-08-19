@@ -25,6 +25,20 @@
              e)Deap copy is safer when you want to edit the data and you don't want those
                changes to accidentally break or alter the original object.*/
             #endregion
+            #region Question03
+            /*
+             a)-A static field belongs to the class not to the object,so no need to create
+               an object in order to access it,and we access it using the class name.
+               -A instance field belongs to the object.Its value differ from one object to 
+               another, and we access it using the object name.
+             b)A static method is a method that belongs to the class and its behavior does not 
+               change from one object to another.We call it using the class name.
+               No.
+             c)A static constructor is a parameterless constructor.We use it to initialize
+               fields.It starts executing automatically with the first use of the class.
+             d)A static class is a class that every member in it is static.No you cannot 
+               create an object from a static class.*/
+            #endregion
             #endregion
         }
     }
